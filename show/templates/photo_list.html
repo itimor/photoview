@@ -17,11 +17,21 @@
                                         class="item__date">{{ photo.img_create_time }}</span>
                                 </h3>
                                 <div class="item__details">
-                                    <ul>
-                                        <li><i class="icon icon-camera"></i><span>{{ photo.img_context }}</span></li>
-                                        <li><i class="icon icon-focal_length"></i><span>{{ photo.like_count }}</span>
+                                    <ul class="left-context">
+                                        <li>
+                                            <i class="icon-leaf"></i>
+                                            <span> {{ photo.img_context }}</span>
                                         </li>
-                                        <li><i class="icon icon-focal_length"></i><span>{{ photo.img_tags }}</span></li>
+                                        <li class="like">
+                                            <i class="icon-heart"></i>
+                                            <span> {{ photo.like_count }}</span>
+                                        </li>
+                                        <li>
+                                            <i class="icon-tags"></i>
+                                            {% for tag in photo.img_tags.all %}
+                                                <span> {{ tag }} </span>
+                                            {% endfor %}
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

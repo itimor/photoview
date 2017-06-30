@@ -68,7 +68,7 @@ class PhotoGroupAdmin(admin.ModelAdmin):
 
 class IndexBackgroundAdmin(admin.ModelAdmin):
     list_display = ('name', 'img_upload',)
-    fields = ('name', 'img_upload',)
+    fields = ('name', 'img_upload', 'image_view')
     readonly_fields = ('image_view',)
 
 
