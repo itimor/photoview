@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人作品展示 - Timy Photography</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/flickity.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css"/>
+    <script src="../static/js/modernizr.custom.js"></script>
+    <!--[if IE]>
+    <script src="../static/js/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <div class="hero__back hero__back--static"></div>
+        <div class="hero__back hero__back--mover"></div>
+        <div class="hero__front"></div>
+    </div>
+    <header class="codrops-header">
+        <div class="codrops-links">
+            <a class="codrops-icon codrops-icon--prev"></a>
+            <a class="codrops-icon codrops-icon--drop"></a>
+        </div>
+        <h1 class="codrops-title">Timy <span>Photography</span></h1>
+        <nav class="menu">
+            <a class="menu__item" href="#"><span>About</span></a>
+            <a class="menu__item menu__item--current" href="#"><span>Work</span></a>
+            <a class="menu__item" href="#"><span>Contact</span></a>
+        </nav>
+    </header>
+    <div class="stack-slider">
+        <div class="stacks-wrapper">
+            {% for groupname,photos in object_list.items %}
+            <div class="stack">
+                <h2 class="stack-title"><a href="#" data-text="Portraits"><span>{{ groupname }}</span></a></h2>
+                {% for photo in photos %}
+                <div class="item">
+                    <div class="item__content">
+                        <img src="upload/{{ photo.img_upload }}" alt="{{ photo.img_title }}"/>
+                        <h3 class="item__title">{{ photo.img_title }} <span class="item__date">{{ photo.img_create_time }}</span>
+                        </h3>
+                        <div class="item__details">
+                            <ul>
+                                <li><i class="icon icon-camera"></i><span>{{ photo.img_context }}</span></li>
+                                <li><i class="icon icon-focal_length"></i><span>{{ photo.like_count }}</span></li>
+                                <li><i class="icon icon-focal_length"></i><span>{{ photo.img_tags }}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        <!-- /stacks-wrapper -->
+    </div>
+    <!-- /stacks -->
+    <img class="loader" src="../static/img/three-dots.svg" width="60" alt="Loader image"/>
+</div>
+<!-- /container -->
+
+<script src="../static/js/flickity.pkgd.min.js"></script>
+<script src="../static/js/smoothscroll.js"></script>
+<script src="../static/js/main.js"></script>
+</body>
+</html>
