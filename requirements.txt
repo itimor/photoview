@@ -1,0 +1,6 @@
+Django==1.11.2
+docutils==0.13.1
+olefile==0.44
+Pillow==4.1.1
+pytz==2017.2
+suit==2.0.2

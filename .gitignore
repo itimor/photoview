@@ -1,0 +1,8 @@
+*.pyc
+db.sqlite3
+*.db
+.idea/
+.DS_Store
+.python-version
+/migrations/
+/upload/

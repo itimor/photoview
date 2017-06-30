@@ -15,7 +15,7 @@ SECRET_KEY = '8m-&ljrdj*-l4!1sb9!ca+0)j@1-ic@x^@(@l6!10a#pdweb2q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -40,7 +40,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'photo.urls'
+ROOT_URLCONF = 'photoview.urls'
 
 TEMPLATES = [
     {
@@ -58,7 +58,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'photo.wsgi.application'
+WSGI_APPLICATION = 'photoview.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
