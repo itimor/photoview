@@ -8,5 +8,8 @@ django相册博客
 
 # 效果图
 ![相册](show/static/image/photo1.png)
+<首页>
+
 ![相册](show/static/image/photo2.png)
+<点击一个相册>
 
