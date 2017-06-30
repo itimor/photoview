@@ -7,6 +7,6 @@ django相册博客
 > 2. 如何管理上传后的图片，删除、更新图片时，本地图片同时更新和删除
 
 # 效果图
-![相册](show/static/image/photo1.jpg)
-![相册](show/static/image/photo2.jpg)
+![相册](show/static/image/photo1.png)
+![相册](show/static/image/photo2.png)
 
