@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'show',
-    "pinax.likes",
 ]
 
 MIDDLEWARE = [
@@ -116,11 +115,3 @@ SUIT_CONFIG = {
     'SHOW_REQUIRED_ASTERISK': True,
     'LIST_PER_PAGE': 20
 }
-
-PINAX_LIKES_LIKABLE_MODELS = {
-    "show.Photo": {}  # can override default config settings for each model here
-}
-
-AUTHENTICATION_BACKENDS = [
-    'pinax.likes.auth_backends.CanLikeBackend',
-]

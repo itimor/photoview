@@ -4,23 +4,6 @@
 from django.db import models
 from storage import ImageStorage, BackgroundStorage
 from django.conf import settings
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes.fields import GenericForeignKey
-
-
-class Likes(models.Model):
-    content_type = models.ForeignKey(ContentType)
-    object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey(
-        ct_field="content_type",
-        fk_field="object_id"
-    )
-
-    # likes number
-    likes_num = models.PositiveIntegerField('点赞数', default=0)
-
-    def __unicode__(self):
-        return u'%s:%s(%s)' % (self.content_type, self.object_id, self.likes_num)
 
 
 class Photo(models.Model):
@@ -32,8 +15,8 @@ class Photo(models.Model):
     img_context = models.TextField(max_length=100, null=True, blank=True, verbose_name=u'图片介绍')
     img_tags = models.ManyToManyField('Tag', blank=True)
     img_group = models.ForeignKey('PhotoGroup', blank=True)
-    like_count = models.ForeignKey('Likes')
-    is_like = models.BooleanField(default=False)
+    like_count = models.IntegerField(u'点赞数', default=0)
+    display = models.BooleanField(default=True, verbose_name=u'显示')
     img_create_time = models.DateTimeField(u'图片发布时间', auto_now_add=True)
     img_update_time = models.DateTimeField(u'图片更新时间', auto_now=True)
 

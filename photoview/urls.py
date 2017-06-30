@@ -10,5 +10,4 @@ from show.views import PhotoListView
 urlpatterns = [
                   url(r'^admin/', admin.site.urls),
                   url(r'^$', PhotoListView.as_view()),
-                  url(r"^likes/", include("pinax.likes.urls", namespace="pinax_likes")),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
