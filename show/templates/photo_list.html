@@ -11,6 +11,14 @@
     <!--[if IE]>
     <script src="../static/js/html5shiv.min.js"></script>
     <![endif]-->
+
+    <style>
+        .hero > div {
+            background: #212121 url(upload/background/bg.jpg) no-repeat 50% 0;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -34,25 +42,27 @@
     <div class="stack-slider">
         <div class="stacks-wrapper">
             {% for groupname,photos in object_list.items %}
-            <div class="stack">
-                <h2 class="stack-title"><a href="#" data-text="Portraits"><span>{{ groupname }}</span></a></h2>
-                {% for photo in photos %}
-                <div class="item">
-                    <div class="item__content">
-                        <img src="upload/{{ photo.img_upload }}" alt="{{ photo.img_title }}"/>
-                        <h3 class="item__title">{{ photo.img_title }} <span class="item__date">{{ photo.img_create_time }}</span>
-                        </h3>
-                        <div class="item__details">
-                            <ul>
-                                <li><i class="icon icon-camera"></i><span>{{ photo.img_context }}</span></li>
-                                <li><i class="icon icon-focal_length"></i><span>{{ photo.like_count }}</span></li>
-                                <li><i class="icon icon-focal_length"></i><span>{{ photo.img_tags }}</span></li>
-                            </ul>
+                <div class="stack">
+                    <h2 class="stack-title"><a href="#" data-text="{{ groupname }}"><span>{{ groupname }}</span></a></h2>
+                    {% for photo in photos %}
+                        <div class="item">
+                            <div class="item__content">
+                                <img src="upload/{{ photo.img_upload }}" alt="{{ photo.img_title }}"/>
+                                <h3 class="item__title">{{ photo.img_title }} <span
+                                        class="item__date">{{ photo.img_create_time }}</span>
+                                </h3>
+                                <div class="item__details">
+                                    <ul>
+                                        <li><i class="icon icon-camera"></i><span>{{ photo.img_context }}</span></li>
+                                        <li><i class="icon icon-focal_length"></i><span>{{ photo.like_count }}</span>
+                                        </li>
+                                        <li><i class="icon icon-focal_length"></i><span>{{ photo.img_tags }}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
-            </div>
             {% endfor %}
         </div>
         <!-- /stacks-wrapper -->

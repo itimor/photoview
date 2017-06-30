@@ -2,7 +2,7 @@
 # author: itimor
 
 from django.contrib import admin
-from models import Photo, Tag, PhotoGroup
+from models import Photo, Tag, PhotoGroup, IndexBackground
 import os
 from django.dispatch import receiver
 from django.db import models
@@ -10,6 +10,7 @@ from django.db import models
 
 # 图片自动删除
 @receiver(models.signals.post_delete, sender=Photo)
+@receiver(models.signals.post_delete, sender=IndexBackground)
 def auto_delete_file_on_delete(sender, instance, **kwargs):
     """
     Deletes file from filesystem
@@ -19,9 +20,9 @@ def auto_delete_file_on_delete(sender, instance, **kwargs):
         if os.path.isfile(instance.img_upload.path):
             os.remove(instance.img_upload.path)
 
-
 # 图片自动更新
 @receiver(models.signals.pre_save, sender=Photo)
+@receiver(models.signals.pre_save, sender=IndexBackground)
 def auto_delete_file_on_change(sender, instance, **kwargs):
     """
     Deletes old file from filesystem
@@ -32,8 +33,8 @@ def auto_delete_file_on_change(sender, instance, **kwargs):
         return False
 
     try:
-        old_file = Photo.objects.get(pk=instance.pk).img_upload
-    except Photo.DoesNotExist:
+        old_file = sender.objects.get(pk=instance.pk).img_upload
+    except sender.DoesNotExist:
         return False
 
     new_file = instance.img_upload
@@ -65,6 +66,13 @@ class PhotoGroupAdmin(admin.ModelAdmin):
     fields = ('name',)
 
 
+class IndexBackgroundAdmin(admin.ModelAdmin):
+    list_display = ('name', 'img_upload',)
+    fields = ('name', 'img_upload',)
+    readonly_fields = ('image_view',)
+
+
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(PhotoGroup, PhotoGroupAdmin)
+admin.site.register(IndexBackground, IndexBackgroundAdmin)

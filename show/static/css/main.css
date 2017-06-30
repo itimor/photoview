@@ -187,11 +187,11 @@ button:focus {
 	pointer-events: none;
 }
 
-.hero > div {
-	background: #212121 url(../img/bg.jpg) no-repeat 50% 0;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
+/*.hero > div {*/
+	/*background: #212121 url(../img/bg.jpg) no-repeat 50% 0;*/
+	/*-webkit-backface-visibility: hidden;*/
+	/*backface-visibility: hidden;*/
+/*}*/
 
 .hero__back--static,
 .hero__front {

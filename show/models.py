@@ -2,7 +2,7 @@
 # author: itimor
 
 from django.db import models
-from storage import ImageStorage
+from storage import ImageStorage, BackgroundStorage
 from django.conf import settings
 
 
@@ -50,3 +50,17 @@ class PhotoGroup(models.Model):
 
     class Meta:
         ordering = ['id']
+
+
+class IndexBackground(models.Model):
+    """
+    相册背景图片的数据模型
+    """
+    name = models.CharField(max_length=20, verbose_name=u'背景名')
+    img_upload = models.ImageField(u'图片上传路径', upload_to='background', storage=BackgroundStorage())
+
+    def image_view(self):
+        return u'<img src="%s"/>' % (settings.MEDIA_URL + str(self.img_upload))
+
+    image_view.short_description = 'Image'
+    image_view.allow_tags = True
