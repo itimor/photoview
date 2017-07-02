@@ -110,7 +110,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
 MEDIA_URL = '/upload/'
 
 SUIT_CONFIG = {
-    'ADMIN_NAME': 'CMS Admin',
+    'ADMIN_NAME': u'相册管理后台',
     'CONFIRM_UNSAVED_CHANGES': True,
     'SHOW_REQUIRED_ASTERISK': True,
     'LIST_PER_PAGE': 20

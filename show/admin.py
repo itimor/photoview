@@ -48,7 +48,7 @@ class PhotoAdmin(admin.ModelAdmin):
     list_filter = ('img_create_time', 'img_update_time', 'like_count', 'img_group', 'display', )
     list_display = (
     'img_title', 'img_context', 'img_upload', 'img_group', 'like_count', 'display', 'img_create_time', 'img_update_time')
-    fields = ('img_title', 'img_context', 'img_tags', 'img_group', 'like_count', 'display', 'img_upload', 'image_view')
+    fields = ('img_title', 'img_context', 'img_tags', 'img_group', 'author', 'like_count', 'display', 'img_upload', 'image_view')
     readonly_fields = ('image_view', 'img_update_time')
 
 

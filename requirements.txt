@@ -3,4 +3,4 @@ docutils==0.13.1
 olefile==0.44
 Pillow==4.1.1
 rpytz==2017.2
-suit==2.0.2
+django-suit==0.2.25
