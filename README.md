@@ -13,3 +13,4 @@ pip install https://github.com/darklow/django-suit/tarball/v2
 
 # 效果图
 ![相册](show/static/image/photo.gif)
+左右滑动相册，点击向上箭头查看相册
